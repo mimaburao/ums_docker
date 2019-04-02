@@ -1,5 +1,4 @@
 FROM debian:stretch
-MAINTAINER Matt Bentley <mbentley@mbentley.net>
 
 # install packages per https://github.com/UniversalMediaServer/UniversalMediaServer/wiki/Linux-install-instructions
 RUN (dpkg --add-architecture i386 &&\
@@ -22,7 +21,7 @@ ENV LC_ALL ja_JP.UTF-8
 
 ENV UMS_PROFILE /opt/ums/UMS.conf
 
-# get latest release number and use that to install UMS; fail to install if version is not 7.x
+# get latest release number and use that to install UMS; fail to install if version is not 8.x
 RUN (UMSVER=$(wget -q -O - https://api.github.com/repos/UniversalMediaServer/UniversalMediaServer/releases/latest | python -c "import sys, json; print json.load(sys.stdin)['name']") &&\
   if [ "$(echo $UMSVER | awk -F '.' '{print $1}')" -ne "8" ]; then echo "Latest version number is no longer 8"; exit 1; fi &&\
   wget "http://sourceforge.net/projects/unimediaserver/files/Official%20Releases/Linux/UMS-${UMSVER}.tgz/download" -O /opt/UMS-${UMSVER}.tgz &&\
