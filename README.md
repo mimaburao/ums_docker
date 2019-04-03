@@ -1,12 +1,12 @@
-# ums_docker
+#ums_docker
 Universal Media server8.0(以下UMS)以上をDocker上で動かすDockerfileである。  
 2019/04/03
 
-# Dependency
+#Dependency
 Docker Docker version 18.09.4  
 Linux Mint 19.1にて動作確認
 
-# Setup
+#Setup
 作業ディレクトリを作成する。（ここではworkフォルダ）  
 git pullで引っ張ってきたディレクトリに移動する。  
 Dockerが利用できるユーザー上でイメージをビルトする。
@@ -24,7 +24,7 @@ mkdir database
 そして、UMS.conf.sampleを適時編集してUMS.confとして保存する。  
 UMS.confの詳細はUMS公式(https://www.universalmediaserver.com/)を参照のこと
 
-# Usage
+#Usage
 初回は起動を確認する。下記コマンドを実行後、webブラウザーでlocalhost:5001にアクセスして立ち上げを確認する。
 ~~~sh
 docker run --net=host --restart=always --name ums \
@@ -54,11 +54,11 @@ v ~/work/ums_docker/UMS.conf:/opt/ums/UMS.conf \
 
 注意として、"-d"コマンドにて起動した場合はリブート後も起動したイメージが残っているため、リブート前にdocker rmにてイメージを削除すること
 
-# Licence
+#Licence
 This software is released under the MIT License, see LICENSE.md.
 
-# Authors
+#Authors
 Burao Mima
 
-# References
+#References
 UMS公式(https://www.universalmediaserver.com/)
