@@ -34,13 +34,6 @@ RUN (UMSVER=$(wget -q -O - https://api.github.com/repos/UniversalMediaServer/Uni
   useradd -u 500 -g 500 -d /opt/ums ums &&\
   chown -R ums:ums /opt/ums)
 
-#Media drive make
-RUN (mkdir /media/media1 &&\
-  mkdir /media/media2 &&\
-  mkdir /media/media3 &&\
-  mkdir /media/media4 &&\
-  mkdir /media/media5)
-
 USER ums
 WORKDIR /opt/ums
 EXPOSE 1900/udp 2869 5001 9001
