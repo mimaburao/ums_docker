@@ -1,7 +1,7 @@
 # ums_docker
 Universal Media server8.0(以下UMS)以上をDocker上で動かすDockerfileである。  
-!https://img.shields.io/badge/Docker-v.18.09.4-green.svg
-!https://img.shields.io/badge/Linux_Mint-v.19.1-green.svg
+<img src ="https://img.shields.io/badge/Docker-v.18.09.4-green.svg">
+<img src ="https://img.shields.io/badge/Linux_Mint-v.19.1-green.svg">
 
 
 2019/04/03
