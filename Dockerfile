@@ -6,7 +6,7 @@ RUN (dpkg --add-architecture i386 &&\
   DEBIAN_FRONTEND=noninteractive apt-get install -y dcraw flac libfreetype6:i386 libstdc++6:i386 libbz2-1.0:i386 lib32z1 lib32ncurses5 mediainfo mencoder mplayer openjdk-8-jre vlc wget &&\
   rm -rf /var/lib/apt/lists/*)
 
-#japanese T.Yazawa 04-02-2019
+#japanese Burao Mima 04-02-2019
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN (apt-get update)
