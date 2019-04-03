@@ -16,7 +16,7 @@ Linux Mint 19.1にて動作確認
 git pullで引っ張ってきたディレクトリに移動する。  
 Dockerが利用できるユーザー上でイメージをビルトする。
 ~~~sh
-docker build ./ -t ums/mima(好きなイメージ名)
+docker build ./ -t mimaburao/ums(好きなイメージ名)
 ~~~
 
 次にUMSが利用するデータベース用フォルダを作成
@@ -35,7 +35,7 @@ UMS.confの詳細はUMS公式(https://www.universalmediaserver.com/)を参照の
 docker run --net=host --restart=always --name ums \
 -v ~/work/ums_docker/UMS.conf:/opt/ums/UMS.conf \
 -v ~/work/ums_docker/data:/opt/ums/data \
--v ~/work/ums_docker/database:/opt/ums/database ums/mima
+-v ~/work/ums_docker/database:/opt/ums/database mimaburao/ums
 ~~~
 
 一旦イメージをストップして削除する。次にメディアファイルのあるディレクトリを-vオプションでdocker上の/media以下にボリュームマウントして起動する。初回はデータベースの構築に時間がかかる。（公式より）  
@@ -45,7 +45,7 @@ docker run --net=host --restart=always --name ums \
 v ~/work/ums_docker/UMS.conf:/opt/ums/UMS.conf \
 -v ~/work/ums_docker/data:/opt/ums/data \
 -v ~/work/ums_docker/database:/opt/ums/database \
--v /media:/media ums/mima
+-v /media:/media mimaburao/ums
 ~~~
 問題なくwebブラウザーやDLNAからアクセスできることを確認したら、"-d"コマンドをつけてデーモンとして起動する。以下のコマンドをスクリプト化してもいい。  
 例:
@@ -54,7 +54,7 @@ docker run -d --net=host --restart=always --name ums \
 v ~/work/ums_docker/UMS.conf:/opt/ums/UMS.conf \
 -v ~/work/ums_docker/data:/opt/ums/data \
 -v ~/work/ums_docker/database:/opt/ums/database \
--v /media:/media ums/mima
+-v /media:/media mimaburao/ums
 ~~~
 
 注意として、"-d"コマンドにて起動した場合はリブート後も起動したイメージが残っているため、リブート前にdocker rmにてイメージを削除すること
