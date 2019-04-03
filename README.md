@@ -45,7 +45,7 @@ UMS.confの詳細はUMS公式(https://www.universalmediaserver.com/)を参照の
 注意として、"-d"コマンドにて起動した場合はリブート後も起動したイメージが残っているため、リブートも前にdocker rmにてイメージを削除すること
 
 # Licence
-This software is released under the MIT License, see LICENSE.
+This software is released under the MIT License, see LICENSE.md.
 
 # Authors
 Burao Mima
