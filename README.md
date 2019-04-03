@@ -37,22 +37,22 @@ docker run --net=host --restart=always --name ums \
 例:
 ~~~sh
 docker run --net=host --restart=always --name ums \
--v /home/mima/work/ums_docker/UMS.conf:/opt/ums/UMS.conf \
--v /mnt/hdd_x/tmp/ums/data:/opt/ums/data \
--v /mnt/hdd_x/tmp/ums/database:/opt/ums/database \
+v ~/work/ums_docker/UMS.conf:/opt/ums/UMS.conf \
+-v ~/work/ums_docker/data:/opt/ums/data \
+-v ~/work/ums_docker/database:/opt/ums/database \
 -v /media:/media ums/mima
 ~~~
 問題なくwebブラウザーやDLNAからアクセスできることを確認したら、"-d"コマンドをつけてデーモンとして起動する。以下のコマンドをスクリプト化してもいい。  
 例:
 ~~~sh
 docker run -d --net=host --restart=always --name ums \
--v /home/mima/work/ums_docker/UMS.conf:/opt/ums/UMS.conf \
--v /mnt/hdd_x/tmp/ums/data:/opt/ums/data \
--v /mnt/hdd_x/tmp/ums/database:/opt/ums/database \
+v ~/work/ums_docker/UMS.conf:/opt/ums/UMS.conf \
+-v ~/work/ums_docker/data:/opt/ums/data \
+-v ~/work/ums_docker/database:/opt/ums/database \
 -v /media:/media ums/mima
 ~~~
 
-注意として、"-d"コマンドにて起動した場合はリブート後も起動したイメージが残っているため、リブートも前にdocker rmにてイメージを削除すること
+注意として、"-d"コマンドにて起動した場合はリブート後も起動したイメージが残っているため、リブート前にdocker rmにてイメージを削除すること
 
 # Licence
 This software is released under the MIT License, see LICENSE.md.
