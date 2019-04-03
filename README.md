@@ -26,12 +26,29 @@ UMS.confの詳細はUMS公式(https://www.universalmediaserver.com/)を参照の
 -v ~/work/ums_docker/data:/opt/ums/data \
 -v ~/work/ums_docker/database:/opt/ums/database ums/mima
 
-次にメディアファイルのあるディレクトリを-vオプションでdocker上の/media以下にボリュームマウントして起動する。
+一旦イメージをストップして削除する。次にメディアファイルのあるディレクトリを-vオプションでdocker上の/media以下にボリュームマウントして起動する。初回はデータベースの構築に時間がかかる。（公式より）
+例:
+>docker run --net=host --restart=always --name ums \
+-v /home/mima/work/ums_docker/UMS.conf:/opt/ums/UMS.conf \
+-v /mnt/hdd_x/tmp/ums/data:/opt/ums/data \
+-v /mnt/hdd_x/tmp/ums/database:/opt/ums/database \
+-v /media:/media ums/mima
+
+問題なくwebブラウザーやDLNAからアクセスできることを確認したら、"-d"コマンドをつけてデーモンとして起動する。以下のコマンドをスクリプト化してもいい。
+例:
+>docker run -d --net=host --restart=always --name ums \
+-v /home/mima/work/ums_docker/UMS.conf:/opt/ums/UMS.conf \
+-v /mnt/hdd_x/tmp/ums/data:/opt/ums/data \
+-v /mnt/hdd_x/tmp/ums/database:/opt/ums/database \
+-v /media:/media ums/mima
+
+注意として、"-d"コマンドにて起動した場合はリブート後も起動したイメージが残っているため、リブートも前にdocker rmにてイメージを削除すること
+
 # Licence
 This software is released under the MIT License, see LICENSE.
 
 # Authors
-作者を明示する。特に、他者が作成したコードを利用する場合は、そのコードのライセンスに従った上で、リポジトリのそれぞれのコードのオリジナルの作者が誰か分かるように明示する（私はそれが良いと思い自主的にしています）。
+Burao Mima
 
 # References
-参考にした情報源（サイト・論文）などの情報、リンク
+UMS公式(https://www.universalmediaserver.com/)
