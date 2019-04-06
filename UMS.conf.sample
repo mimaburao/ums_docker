@@ -94,7 +94,7 @@ append_profile_name =
 # An IETF language tag is used to set the language, see
 # http://en.wikipedia.org/wiki/IETF_language_tag
 # Default: "", which means UMS will follow the locale.
-language =
+language = "ja"
 
 # Start minimized to system tray
 # ------------------------------
@@ -526,7 +526,7 @@ scan_shared_folders_on_startup =
 # On Linux:
 #   - /user
 # Default: ""
-folders =
+folders = /media
 
 # Monitor played status of files
 # ------------------------------

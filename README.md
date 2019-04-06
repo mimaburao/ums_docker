@@ -28,6 +28,15 @@ mkdir database
 注意として各フォルダは読み書き自由な権限にすることである  
 そして、UMS.conf.sampleを適時編集してUMS.confとして保存する。  
 UMS.confの詳細はUMS公式(https://www.universalmediaserver.com/)を参照のこと
+UMS.confの修正箇所
+~~~
+language = "ja" #言語設定
+folders = /media
+~~~
+UMS.confを書き込み可能とする
+~~~sh
+chmod a+rw UMS.conf
+~~~
 
 # Usage
 初回は起動を確認する。下記コマンドを実行後、webブラウザーでlocalhost:5001にアクセスして立ち上げを確認する。
