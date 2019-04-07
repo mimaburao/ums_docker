@@ -56,7 +56,7 @@ v ~/work/ums_docker/UMS.conf:/opt/ums/UMS.conf \
 -v ~/work/ums_docker/database:/opt/ums/database \
 -v /media:/media mimaburao/ums
 ~~~
-問題なくwebブラウザーやDLNAからアクセスできることを確認したら、"-d"コマンドをつけてデーモンとして起動する。以下のコマンドをスクリプト化してもいい。  
+問題なくwebブラウザーやDLNAからアクセスできることを確認したら、"-d"コマンドをつけてバックグラウンドとして起動する。以下のコマンドをスクリプト化してもいい。  
 例:
 ~~~sh
 docker run -d --net=host --restart=always --name ums \
@@ -66,7 +66,11 @@ v ~/work/ums_docker/UMS.conf:/opt/ums/UMS.conf \
 -v /media:/media mimaburao/ums
 ~~~
 
-注意として、"-d"コマンドにて起動した場合はリブート後も起動したイメージが残っているため、リブート前にdocker rmにてイメージを削除すること
+注意として、"-d"コマンドにて起動した場合はリブート後もコンテナが動作している。  
+コンテナを停止する場合は
+~~~
+docker rm ums(起動したイメージ名、もしくはdocker ps -aで確認したIDを指定)
+~~~
 
 # Licence
 This software is released under the MIT License, see LICENSE.md.
