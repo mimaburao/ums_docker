@@ -28,10 +28,11 @@ mkdir database
 注意として各フォルダは読み書き自由な権限にすることである  
 そして、UMS.conf.sampleを適時編集してUMS.confとして保存する。  
 UMS.confの詳細はUMS公式(https://www.universalmediaserver.com/)を参照のこと
-UMS.confの修正箇所
+UMS.confの修正箇所は３箇所
 ~~~
 language = "ja" #言語設定
 folders = /media
+network_interface = eth0 #ifconfigにて調べた物理インターフェース名
 ~~~
 UMS.confを書き込み可能とする
 ~~~sh
