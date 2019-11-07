@@ -1,5 +1,5 @@
 # ums_docker
-Universal Media server8.0(以下UMS)以上をDocker上で動かすDockerfileである。  
+Universal Media server9.1.0(以下UMS)以上をDocker上で動かすDockerfileである。  
 <img src ="https://img.shields.io/badge/Docker-v.18.09.4-green.svg">
 <img src ="https://img.shields.io/badge/UMS-8.0.1-blue.svg">
 <img src ="https://img.shields.io/badge/Linux_Mint-v.19.1-green.svg">
@@ -47,6 +47,7 @@ docker run --net=host --restart=always --name ums \
 -v ~/work/ums_docker/data:/opt/ums/data \
 -v ~/work/ums_docker/database:/opt/ums/database mimaburao/ums
 ~~~
+* 前バージョンにて動作していた場合は、data、databaseを一旦削除か、新設する必要が有る。  
 
 一旦イメージをストップして削除する。次にメディアファイルのあるディレクトリを-vオプションでdocker上の/media以下にボリュームマウントして起動する。初回はデータベースの構築に時間がかかる。（公式より）  
 例:
