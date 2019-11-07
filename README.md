@@ -5,7 +5,7 @@ Universal Media server9.1.0(以下UMS)以上をDocker上で動かすDockerfile�
 <img src ="https://img.shields.io/badge/Linux_Mint-v.19.1-green.svg">
 
 
-2019/04/03
+2019/11/07
 
 # Dependency
 Docker Docker version 18.09.4  
