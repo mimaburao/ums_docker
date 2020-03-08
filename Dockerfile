@@ -1,5 +1,11 @@
 FROM debian:stretch
 
+# install packages per https://github.com/UniversalMediaServer/UniversalMediaServer/wiki/Linux-install-instructions
+RUN (dpkg --add-architecture i386 &&\
+  apt-get update &&\
+  DEBIAN_FRONTEND=noninteractive apt-get install -y dcraw flac libfreetype6:i386 libstdc++6:i386 libbz2-1.0:i386 lib32z1 lib32ncurses5 mediainfo mencoder mplayer vlc wget &&\
+  rm -rf /var/lib/apt/lists/*)
+
 #japanese T.Yazawa 03-22-2019
 ENV DEBIAN_FRONTEND noninteractive
 
