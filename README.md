@@ -1,15 +1,15 @@
 # ums_docker
-Universal Media server9.1.0(以下UMS)以上をDocker上で動かすDockerfileである。  
+Universal Media server9.3.0(以下UMS)以上をDocker上で動かすDockerfileである。  
 <img src ="https://img.shields.io/badge/Docker-v.18.09.4-green.svg">
-<img src ="https://img.shields.io/badge/UMS-8.0.1-blue.svg">
-<img src ="https://img.shields.io/badge/Linux_Mint-v.19.1-green.svg">
+<img src ="https://img.shields.io/badge/UMS-9.3.0-blue.svg">
+<img src ="https://img.shields.io/badge/Linux_Mint-v.19.3-green.svg">
 
 
 2019/11/07
 
 # Dependency
 Docker Docker version 18.09.4  
-Linux Mint 19.1にて動作確認
+Linux Mint 19.3にて動作確認
 
 # Setup
 作業ディレクトリを作成する。（ここではworkフォルダ）  
