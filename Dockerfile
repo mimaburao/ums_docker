@@ -26,9 +26,9 @@ RUN (UMSVER=$(wget -q -O - https://api.github.com/repos/UniversalMediaServer/Uni
   if [ "$(echo $UMSVER | awk -F '.' '{print $1}')" -ne "9" ]; then echo "Latest version number is no longer 9"; exit 1; fi &&\
   wget --content-disposition "http://sourceforge.net/projects/unimediaserver/files/${UMSVER}/UMS-${UMSVER}.tgz/download" -O /opt/UMS-${UMSVER}.tgz &&\
   cd /opt &&\
-  tar zxf UMS-9.3.0.tgz &&\
-  rm UMS-9.3.0.tgz &&\
-  mv ums-9.3.0 ums &&\
+  tar zxf UMS-${UMSVER}.tgz &&\
+  rm UMS-${UMSVER}.tgz &&\
+  mv ums-${UMSVER} ums &&\
   mkdir /opt/ums/database /opt/ums/data &&\
   groupadd -g 500 ums &&\
   useradd -u 500 -g 500 -d /opt/ums ums &&\
