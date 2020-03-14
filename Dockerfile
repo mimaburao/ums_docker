@@ -34,8 +34,6 @@ RUN (UMSVER=$(wget -q -O - https://api.github.com/repos/UniversalMediaServer/Uni
   useradd -u 500 -g 500 -d /opt/ums ums &&\
   chown -R ums:ums /opt/ums)
 
-#Media drive make
-
 
 USER ums
 WORKDIR /opt/ums
