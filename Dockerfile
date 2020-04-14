@@ -22,19 +22,16 @@ ENV LC_ALL ja_JP.UTF-8
 ENV UMS_PROFILE /opt/ums/UMS.conf
 
 # get latest release number and use that to install UMS; fail to install if version is not 8.x
-#UMS_9.4.1 2020-04-14
-RUN (UMSVER=$(wget -q -O - https://api.github.com/repos/UniversalMediaServer/UniversalMediaServer/releases/latest | python -c "import sys, json; print json.load(sys.stdin)['name']") &&\
-  if [ "$(echo $UMSVER | awk -F '.' '{print $1}')" -ne "9" ]; then echo "Latest version number is no longer 9"; exit 1; fi &&\
-  wget --content-disposition "http://sourceforge.net/projects/unimediaserver/files/${UMSVER}/UMS-${UMSVER}.tgz/download" -O /opt/UMS-${UMSVER}.tgz &&\
+#UMS_9.4.1version update 2020-04-14
+RUN (wget --content-disposition 'https://sourceforge.net/projects/unimediaserver/files/9.4.1/UMS-9.4.1.tgz/download' -O /opt/UMS-9.4.1.tgz &&\
   cd /opt &&\
-  tar zxf UMS-${UMSVER}.tgz &&\
-  rm UMS-${UMSVER}.tgz &&\
-  mv ums-${UMSVER} ums &&\
+  tar xzf UMS-9.4.1.tgz &&\
+  rm UMS-9.4.1.tgz &&\
+  mv ums-9.4.1 ums &&\
   mkdir /opt/ums/database /opt/ums/data &&\
   groupadd -g 500 ums &&\
   useradd -u 500 -g 500 -d /opt/ums ums &&\
   chown -R ums:ums /opt/ums)
-
 
 USER ums
 WORKDIR /opt/ums
