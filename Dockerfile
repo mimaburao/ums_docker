@@ -22,7 +22,7 @@ ENV LC_ALL ja_JP.UTF-8
 ENV UMS_PROFILE /opt/ums/UMS.conf
 
 # get latest release number and use that to install UMS; fail to install if version is not 8.x
-#UMS_9.4.2 2020-05-28
+#UMS_9.8.0 2020-08-17
 RUN (UMSVER=$(wget -q -O - https://api.github.com/repos/UniversalMediaServer/UniversalMediaServer/releases/latest | python -c "import sys, json; print json.load(sys.stdin)['name']") &&\
   if [ "$(echo $UMSVER | awk -F '.' '{print $1}')" -ne "9" ]; then echo "Latest version number is no longer 9"; exit 1; fi &&\
   wget --content-disposition "http://sourceforge.net/projects/unimediaserver/files/${UMSVER}/UMS-${UMSVER}-x86_64.tgz/download" -O /opt/UMS-${UMSVER}.tgz &&\
